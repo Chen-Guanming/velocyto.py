@@ -83,9 +83,9 @@ def run10x(samplefolder: str, gtffile: str,
         logging.error("The outputs are not ready")
     bamfile = os.path.join(samplefolder, "outs", "possorted_genome_bam.bam")
 
-    bcmatches = glob.glob(os.path.join(samplefolder, os.path.normcase("outs/filtered_gene_bc_matrices/*/barcodes.tsv")))
+    bcmatches = glob.glob(os.path.join(samplefolder, os.path.normcase("outs/raw_gene_bc_matrices/*/barcodes.tsv")))
     if len(bcmatches) == 0:
-        bcmatches = glob.glob(os.path.join(samplefolder, os.path.normcase("outs/filtered_feature_bc_matrix/barcodes.tsv.gz")))
+        bcmatches = glob.glob(os.path.join(samplefolder, os.path.normcase("outs/raw_feature_bc_matrix/barcodes.tsv.gz")))
     if len(bcmatches) == 0:
         logging.error("Can not locate the barcodes.tsv file!")
     bcfile = bcmatches[0]
